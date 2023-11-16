@@ -1,16 +1,10 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
-import { VariantProps } from 'tailwind-variants'
+import { ButtonProps } from './type'
 import { buttonVariants } from './variants'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-	VariantProps<typeof buttonVariants> & {
-		children: ReactNode
-	}
-
-export function Button({ children, variant, size, ...rest }: ButtonProps) {
+export function Button({ children, buttonColor, buttonSize, ...rest }: ButtonProps) {
 	return (
 		<button
-			className={buttonVariants({ variant, size })}
+			className={buttonVariants({ buttonColor, buttonSize })}
 			onClick={rest.onClick}
 			onFocus={rest.onFocus}
 		>
