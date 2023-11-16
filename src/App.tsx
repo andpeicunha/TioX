@@ -6,7 +6,13 @@ function App() {
 
 	return (
 		<div className='card m-10'>
-			<Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
+			<Button
+				onClick={() => setCount((count) => count + 1)}
+				buttonColor='primary'
+				buttonSize='lg'
+			>
+				Texto: Cliques {count}
+			</Button>
 		</div>
 	)
 }
