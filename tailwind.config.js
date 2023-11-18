@@ -1,25 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+import { color } from './src/theme/color'
+
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/tiox-ds/src/**/*.{html,js,jsx,ts,tsx}"
   ],
   theme: {
      colors: {
-      'primary': {
-        'lightest': '#d2fbfb',
-        'light': '#71ecef',
-        'base': '#15c5ce',
-        'dark': '#177a87',
-        'darkest': '#1b525e',
-      },
-      'secondary': {
-        'lightest': '#ffe2d4',
-        'light': '#ff8156',
-        'base': '#fc3613',
-        'dark': '#c51009',
-        'darkest': '#7e1010',
-      },
+      ...color
     },
     extend: {},
   },

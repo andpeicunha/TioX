@@ -1,14 +1,12 @@
-import { ButtonProps } from './type'
-import { buttonVariants } from './variants'
+import ButtonIcon from './ButtonIcon'
+import ButtonRoot from './ButtonRoot'
+import { ButtonIconProps, ButtonRootsProps } from './type'
 
-export function Button({ children, buttonColor, buttonSize, ...rest }: ButtonProps) {
+export function Button({ iconName, children }: ButtonIconProps & ButtonRootsProps) {
 	return (
-		<button
-			className={buttonVariants({ buttonColor, buttonSize })}
-			onClick={rest.onClick}
-			onFocus={rest.onFocus}
-		>
+		<ButtonRoot>
+			<ButtonIcon iconName={iconName} />
 			{children}
-		</button>
+		</ButtonRoot>
 	)
 }
