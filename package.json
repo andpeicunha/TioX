@@ -6,7 +6,7 @@
   "main": "./src/index.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andpeicunha/tiox-ui.git"
+    "url": "https://github.com/andpeicunha/tiox-ui"
   },
   "author": "Andre Peixoto <andrepeixoto@gmail.com>",
   "keywords": [
