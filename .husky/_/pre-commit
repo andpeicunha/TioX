@@ -8,7 +8,9 @@ last_version=$(cat .package.version)
 current_version_number=$(echo "$current_version" | tr -dc '0-9\n' | bc)
 last_version_number=$(echo "$last_version" | tr -dc '0-9\n' | bc)
 
-if [ "$last_version_number" -le "$current_version_number" ]; then
+echo "$last_version_number" , "$current_version_number"
+
+if [ "$current_version_number" -le "$last_version_number"  ]; then
     echo "A versão atual é menor ou igual à última versão no seu Package.json."
     echo ""
     echo "Rode o comando 'yarn version-select' para corrigir"
@@ -16,4 +18,4 @@ if [ "$last_version_number" -le "$current_version_number" ]; then
 fi
 
 # Salvar a versão atual no arquivo
-# echo "$current_version" > .package.version
+echo "$current_version" > .package.version
