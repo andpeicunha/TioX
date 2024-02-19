@@ -8,12 +8,9 @@ last_version=$(cat .package.version)
 current_version_number=$(echo "$current_version" | tr -dc '0-9\n' | bc)
 last_version_number=$(echo "$last_version" | tr -dc '0-9\n' | bc)
 
-echo "$last_version_number" , "$current_version_number"
-
 if [ "$current_version_number" -le "$last_version_number"  ]; then
-    echo "A versão atual é menor ou igual à última versão no seu Package.json."
-    echo ""
-    echo "Rode o comando 'yarn version-select' para corrigir"
+    echo "A versão atual é MENOR ou IGUAL à última versão no Package."
+    echo "Rode o comando 'yarn version-select' para corrigir e depois git add ."
     exit 1
 fi
 
