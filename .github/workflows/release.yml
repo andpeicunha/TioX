@@ -13,10 +13,11 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3.7.1
         with:
+          skip-version-file: "true"
           github-token: ${{ secrets.PA_TOKEN }}
           # version-file: "./package.json,./package-lock.json"
           # skip-tag: "true"
-          output-file: "false"
+          # output-file: "false"
       - name: Create Release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
