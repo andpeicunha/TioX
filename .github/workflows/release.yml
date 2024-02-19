@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3.7.1
@@ -16,8 +17,9 @@ jobs:
           github-token: ${{ secrets.PA_TOKEN }}
           version-file: "./package.json"
           # skip-version-file: "true"
-          # skip-tag: "true"
-          # output-file: "false"
+          skip-tag: "true"
+          output-file: "false"
+
       - name: Create Release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
