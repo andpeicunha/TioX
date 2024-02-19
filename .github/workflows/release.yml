@@ -13,9 +13,9 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3.7.1
         with:
-          skip-version-file: "true"
           github-token: ${{ secrets.PA_TOKEN }}
-          # version-file: "./package.json,./package-lock.json"
+          version-file: "./package.json"
+          # skip-version-file: "true"
           # skip-tag: "true"
           # output-file: "false"
       - name: Create Release
