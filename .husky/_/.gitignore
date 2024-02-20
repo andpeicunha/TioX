@@ -1,0 +1,7 @@
+applypatch-msg
+h
+husky.sh
+post-applypatch
+post-checkout
+post-commit
+post-merge
