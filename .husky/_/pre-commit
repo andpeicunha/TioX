@@ -13,8 +13,8 @@ echo ""
 if [ "$current_version_number" -le "$last_version_number"  ]; then
     echo "A versão atual é MENOR ou IGUAL à última versão no Package."
     echo "Rode o comando 'yarn version-select' para corrigir e depois git add ."
-    yarn version-select 
-    # exit 1
+    # yarn version-select 
+    exit 1
 fi
 
 # Salvar a versão atual no arquivo
