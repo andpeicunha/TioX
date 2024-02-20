@@ -16,7 +16,7 @@ jobs:
         with:
           github-token: ${{ secrets.PA_TOKEN }}
           version-file: "./package.json"
-          output-file: "false"
+          # output-file: "false"
 
       - name: Create Release
         uses: actions/create-release@v1

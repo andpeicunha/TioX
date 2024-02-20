@@ -1,6 +1,6 @@
 {
     "name": "@tio/ui",
-    "version": "0.0.81",
+    "version": "0.0.82",
     "type": "module",
     "description": "TioX is a personal Design System project that is open and free to use",
     "main": "./src/index.ts",
