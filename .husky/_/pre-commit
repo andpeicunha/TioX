@@ -20,5 +20,5 @@ if [ "$current_version_number" -le "$last_version_number"  ]; then
 fi
 
 # Salvar a versão atual no arquivo
-git add .package.version
 echo "$current_version" > .package.version
+git add .package.version
