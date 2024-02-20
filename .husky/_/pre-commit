@@ -14,11 +14,11 @@ echo ""
 
 if [ "$current_version_number" -le "$last_version_number"  ]; then
     echo "The version is minor or equal."
-    echo ""
     echo "Run the command 'yarn version-select'."
     # yarn version-select 
     exit 1
 fi
 
 # Salvar a versão atual no arquivo
+git add .package.version
 echo "$current_version" > .package.version
