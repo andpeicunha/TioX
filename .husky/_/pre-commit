@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-. "${0%/*}/h"
+# . "${0%/*}/h"
 
 # Extrair a versão atual do package.json
 current_version=$(jq -r '.version' package.json)
@@ -7,14 +7,15 @@ last_version=$(cat .package.version)
 
 current_version_number=$(echo "$current_version" | tr -dc '0-9\n' | bc)
 last_version_number=$(echo "$last_version" | tr -dc '0-9\n' | bc)
+echo "Current: "$current_version_number" ... "Last: "$last_version_number"
+echo ""
 
 if [ "$current_version_number" -le "$last_version_number"  ]; then
     echo "A versão atual é MENOR ou IGUAL à última versão no Package."
     echo "Rode o comando 'yarn version-select' para corrigir e depois git add ."
-    # yarn version-select 
-    exit 1
+    yarn version-select 
+    # exit 1
 fi
 
 # Salvar a versão atual no arquivo
 echo "$current_version" > .package.version
-git add .package.version
