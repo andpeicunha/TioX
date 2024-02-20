@@ -1,4 +1,2 @@
 #!/usr/bin/env sh
 . "${0%/*}/h"
-
-git add .package.version
