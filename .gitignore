@@ -22,3 +22,5 @@ CHANGELOG.md
 *.sw?
 .env
 .env.*
+dist
+.yarn 
