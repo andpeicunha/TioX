@@ -18,6 +18,7 @@ jobs:
           output-file: "CHANGELOG.md"
           version-file: "./package.json"
           release-count: "10"
+          git-push: "false"
 
       - name: Create Release
         uses: actions/create-release@v1
