@@ -11,12 +11,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Conventional Changelog Action
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: TriPSs/conventional-changelog-action@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          git-message: "chore(release): {version}"
           output-file: "CHANGELOG.md"
-          version-file: "package.json"
-          release-count: "0"
+          version-file: "./package.json"
+          release-count: "10"
 
       - name: Create Release
         uses: actions/create-release@v1
