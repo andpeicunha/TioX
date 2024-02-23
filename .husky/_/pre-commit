@@ -7,20 +7,23 @@ npx --no -- commitlint --edit $1
 current_version=$(jq -r '.version' package.json)
 last_version=$(cat .package.version)
 
-if node -e "process.exitCode = Number(require('semver').gte('$last_version', '$current_version'))"; then
-    echo "The version is minor or equal."
-    echo "Run the command 'yarn version-select'."
-    exit 1
-else
-    echo "A versão atual é maior do que a versão anterior."
-fi
+
+# if node -e "process.exitCode = Number(require('semver').gte('$last_version', '$current_version'))"; then
+#     echo "The version is minor or equal."
+#     echo "Run the command 'yarn version-select'."
+#     exit 1
+# else
+#     echo "A versão atual é maior do que a versão anterior."
+# fi
+
+echo "CURRENT: "$current_version >= $last_version" "
 
 # current_version_number=$(echo "$current_version" | tr -dc '0-9\n' | bc)
 # last_version_number=$(echo "$last_version" | tr -dc '0-9\n' | bc)
-# echo "### PACKAGE VERSION ###"
-# echo "CURRENT: "$current_version_number", "$current_version" "
-# echo "LAST: "$last_version_number", "$last_version""
-# echo ""
+echo "### PACKAGE VERSION ###"
+echo "CURRENT: "$current_version_number", "$current_version" "
+echo "LAST: "$last_version_number", "$last_version""
+echo ""
 
 # if [ "$current_version_number" -le "$last_version_number"  ]; then
 #     echo "The version is minor or equal."
