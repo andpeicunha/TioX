@@ -24,7 +24,7 @@ jobs:
         # if: ${{ steps.changelog.outputs.skipped == 'false' }}
 
         env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.PA_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
