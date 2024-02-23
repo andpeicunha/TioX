@@ -3,34 +3,26 @@
 
 npx --no -- commitlint --edit $1
 
-# Extrair a versão atual do package.json
 current_version=$(jq -r '.version' package.json)
 last_version=$(cat .package.version)
 
+# Chamar a função de teste usando Node.js
+result=$(node -e "const versionTester = require('./semverCompare.cjs'); console.log(versionTester.test('$current_version', '$last_version'));")
 
-# if node -e "process.exitCode = Number(require('semver').gte('$last_version', '$current_version'))"; then
-#     echo "The version is minor or equal."
-#     echo "Run the command 'yarn version-select'."
-#     exit 1
-# else
-#     echo "A versão atual é maior do que a versão anterior."
-# fi
+# Verificar o resultado da função de teste
+if [ "$result" = "true" ]; then
+    echo "Version: "$current_version""
+    echo "$current_version" > .package.version
+    git tag -a "$current_version" -m "Versão $current_version"
+    git add .package.version
+    exit 0
+else
+    echo "A versão atual é menor ou igual à versão anterior."
+    echo "current: "$current_version" | last: "$last_version"" 
+    echo ""
+    echo "run 'yarn version-select'"
+    exit 1
+fi
 
-echo "CURRENT: "$current_version >= $last_version" "
 
-# current_version_number=$(echo "$current_version" | tr -dc '0-9\n' | bc)
-# last_version_number=$(echo "$last_version" | tr -dc '0-9\n' | bc)
-echo "### PACKAGE VERSION ###"
-echo "CURRENT: "$current_version_number", "$current_version" "
-echo "LAST: "$last_version_number", "$last_version""
-echo ""
 
-# if [ "$current_version_number" -le "$last_version_number"  ]; then
-#     echo "The version is minor or equal."
-#     echo "Run the command 'yarn version-select'."
-#     exit 1
-# fi
- 
-# # Salvar a versão atual no arquivo
-echo "$current_version" > .package.version
-git add .package.version
