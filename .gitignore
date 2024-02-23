@@ -23,4 +23,5 @@ CHANGELOG.md
 .env
 .env.*
 dist
+dist/*
 .yarn 

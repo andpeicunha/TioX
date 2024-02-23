@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 # . "${0%/*}/h"
 
+npx --no -- commitlint --edit $1
+
 # Extrair a versão atual do package.json
 current_version=$(jq -r '.version' package.json)
 last_version=$(cat .package.version)

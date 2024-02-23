@@ -16,4 +16,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* primary colors */
+  --primary-lightest: rgb(210, 251, 251);
+  --primary-base: rgb(21, 197, 206);
+  --primary-light: rgb(113, 236, 239);
+  --primary-dark: rgb(23, 122, 135);
+  --primary-darkest: rgb(27, 82, 94);
+
+  /* secondary colors */
+  --secondary-lightest: rgb(255, 226, 212);
+  --secondary-light: rgb(255, 129, 86);
+  --secondary-base: rgb(252, 54, 19);
+  --secondary-dark: rgb(197, 16, 9);
+  --secondary-darkest: rgb(126, 16, 16);
 }
