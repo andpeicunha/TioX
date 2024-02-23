@@ -15,7 +15,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           skip-version-file: "true"
-          release-count: "0"
           skip-tag: "true"
 
       - name: Create Release
